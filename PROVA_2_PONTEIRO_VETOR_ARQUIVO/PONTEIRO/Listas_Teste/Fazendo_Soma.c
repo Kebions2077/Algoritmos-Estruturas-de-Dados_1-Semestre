@@ -1,22 +1,23 @@
 #include <stdio.h>
+#include <stdlib.h>
 
+int main (void){
+    int n,*ponteiro;
+    ponteiro=NULL;
+    n=3;
 
-int soma (int *a, int *b){
+    ponteiro=malloc(n*sizeof(int));
+    if(ponteiro==NULL){
+    fprintf(stderr,"Erro de alocação");
+    exit(1);
+    }
 
-int resultado = *a+*b;
-return resultado;
-
-}
-
-int main (){
-    
-    int num1, num2;
-    printf("Digite dois numeros inteiro: ");
-    scanf("%d %d", &num1, &num2);
-    int resultado = soma(&num1, &num2);
-    printf("A soma de %d e %d eh: %d\n", num1, num2, resultado);
-    return 0;
-
-
-
+    printf("Digite O primeiro numero:\n");
+        scanf("%i",&ponteiro[0]);
+        printf("Digite O segundo numero:\n");
+        scanf("%i",&ponteiro[1]);
+ponteiro[2]=ponteiro[0]+ponteiro[1];
+printf("Resultado:%i",ponteiro[2]);
+free(ponteiro);
+return 0;
 }
